@@ -12,7 +12,7 @@ function fibs(n) {
     return fibsArray
 }
 
-// console.log(fibs(8)) // [0, 1, 1, 2, 3, 5, 13]
+console.log(fibs(8)) // [0, 1, 1, 2, 3, 5, 13]
 
 // Now write another func fibsREC, solves same prob recursively
 // FIB ALWAYS starts with [0, 1]
