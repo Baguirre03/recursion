@@ -2,7 +2,6 @@
 // and returns a sorted array, using a recursive merge sort methodology.
 
 function mergeSort(array) {
-    // console.log('passing through:', array)
     if (array.length > 1) {
         let mid = (array.length) / 2
         let low = array.slice(0, mid)
@@ -11,33 +10,35 @@ function mergeSort(array) {
         // console.log('high: ', high)
         mergeSort(low) 
         mergeSort(high)
-        return merge(low, high)
+        return merge(low, high, array)
     }
 }
 
-function merge(lowArray, highArray) {
-    let c = []
-    console.log('merging:', lowArray, highArray)
+function merge(lowArray, highArray, array) {
+    console.log('temp array', array)
+    // console.log('start of c:', c)
+    // console.log('merging:', lowArray, highArray)
     let i = 0; let j = 0; let k = 0;
     while (i < lowArray.length && j < highArray.length) {
         if(lowArray[i] < highArray[j]) {
-            c[k++] = lowArray[i++]
+            array[k++] = lowArray[i++]
         } else {
-            c[k++] = highArray[j++]
+            array[k++] = highArray[j++]
         }
     }
     for (; i < lowArray.length; i++) {
-        c[k++] = lowArray[i]
+        array[k++] = lowArray[i]
     }
     for (; j < highArray.length; j++) {
-        c[k++] = highArray[j]
+        array[k++] = highArray[j]
     }
-    console.log('result: ', c)
-    return c
+    console.log('finished in: ', array)
+    // console.log('result: ',array)
+    return array
 }
 
 // console.log(mergeSort([2]))
 // console.log(mergeSort([4, 2]))
 console.log(mergeSort([4,2,7,6]))
 // console.log(mergeSort([6,4,3,8,1,2]))
-// console.log(mergeSort([5, 3, 6, 0, 1, 11, 8, 3]))
+// console.log(mergeSort([5, 3, 6, 0, 1, 11, 8, 3, 3, 123, 44, 5, 10]))
